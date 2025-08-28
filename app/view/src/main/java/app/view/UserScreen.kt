@@ -13,12 +13,9 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.grid.GridCells
-import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.SignalWifiOff
 import androidx.compose.material3.Card
-import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
@@ -29,7 +26,6 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
@@ -133,19 +129,14 @@ fun UserSuccessScreen(
     Box(
         modifier = Modifier
             .fillMaxSize(),
-//        contentAlignment = Alignment.Center
 
     ) {
 
-
-//        StaticBottomSheetScaffold(Modifier.align(Alignment.BottomCenter))
         Column(
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             LazyColumn (
-//                columns = GridCells.Fixed(2),
                 contentPadding = PaddingValues(18.dp),
-//                horizontalArrangement = Arrangement.spacedBy(10.dp),
                 verticalArrangement = Arrangement.spacedBy(10.dp)
             ) {
                 items(pageCount()) { index ->
@@ -153,24 +144,6 @@ fun UserSuccessScreen(
                 }
             }
         }
-//        StaticBottomSheetScaffold(
-//            Modifier
-//                .fillMaxWidth()
-//                .align(Alignment.BottomCenter)
-//        )
-//        Surface(
-//            modifier = Modifier
-//                .fillMaxWidth()
-//                .align(Alignment.BottomCenter),
-//            color = MaterialTheme.colorScheme.surface,
-//            shape = RoundedCornerShape(topStart = 24.dp, topEnd = 24.dp),
-//            tonalElevation = 6.dp
-//        ) {
-//            Column(modifier = Modifier.padding(16.dp)) {
-//                Text("Bottom overlay", style = MaterialTheme.typography.titleMedium)
-//                Text("Sits above the full-screen content")
-//            }
-//        }
     }
 }
 
