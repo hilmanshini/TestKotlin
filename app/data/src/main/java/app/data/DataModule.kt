@@ -23,10 +23,8 @@ class DataModule {
 
     @Provides
     @Singleton
-    fun provideImdbImdbRestRemote(restConfig: RestConfig): TestRemoteDataSource = TestClient(restConfig).create(
+    fun provideRestRemote(restConfig: RestConfig): TestRemoteDataSource = TestClient(restConfig).create(
         TestRestApi::class.java
     )
-
-
 
 }

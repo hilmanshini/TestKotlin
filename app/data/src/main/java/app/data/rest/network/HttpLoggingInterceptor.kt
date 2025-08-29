@@ -1,13 +1,10 @@
 package app.common.network
 
-//import okhttp3.internal.charsetOrUtf8
-//import okhttp3.logging.internal.isProbablyUtf8
 
 import okhttp3.Headers
 import okhttp3.HttpUrl
 import okhttp3.Interceptor
 import okhttp3.MediaType
-import okhttp3.OkHttpClient
 import okhttp3.Response
 import okhttp3.internal.http.promisesBody
 import okhttp3.internal.platform.Platform
@@ -33,61 +30,12 @@ constructor(
     var level = Level.NONE
 
     enum class Level {
-        /** No logs. */
         NONE,
 
-        /**
-         * Logs request and response lines.
-         *
-         * Example:
-         * ```
-         * --> POST /greeting http/1.1 (3-byte body)
-         *
-         * <-- 200 OK (22ms, 6-byte body)
-         * ```
-         */
         BASIC,
 
-        /**
-         * Logs request and response lines and their respective headers.
-         *
-         * Example:
-         * ```
-         * --> POST /greeting http/1.1
-         * Host: example.com
-         * Content-Type: plain/text
-         * Content-Length: 3
-         * --> END POST
-         *
-         * <-- 200 OK (22ms)
-         * Content-Type: plain/text
-         * Content-Length: 6
-         * <-- END HTTP
-         * ```
-         */
         HEADERS,
 
-        /**
-         * Logs request and response lines and their respective headers and bodies (if present).
-         *
-         * Example:
-         * ```
-         * --> POST /greeting http/1.1
-         * Host: example.com
-         * Content-Type: plain/text
-         * Content-Length: 3
-         *
-         * Hi?
-         * --> END POST
-         *
-         * <-- 200 OK (22ms)
-         * Content-Type: plain/text
-         * Content-Length: 6
-         *
-         * Hello!
-         * <-- END HTTP
-         * ```
-         */
         BODY,
     }
 
@@ -121,13 +69,6 @@ constructor(
         queryParamsNameToRedact = newQueryParamsNameToRedact
     }
 
-    /**
-     * Sets the level and returns this.
-     *
-     * This was deprecated in OkHttp 4.0 in favor of the [level] val. In OkHttp 4.3 it is
-     * un-deprecated because Java callers can't chain when assigning Kotlin vals. (The getter remains
-     * deprecated).
-     */
     fun setLevel(level: Level) =
         apply {
             this.level = level
