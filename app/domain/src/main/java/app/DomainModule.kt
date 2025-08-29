@@ -17,7 +17,7 @@ class DomainModule {
 
     @Provides
     @Singleton
-    fun provideGenreRepo(
+    fun procvideUsersRepo(
         testRemoteDataSource: TestRemoteDataSource
     ) = UserDataSource(
         testRemoteDataSource
@@ -31,7 +31,7 @@ class DomainModule {
 @InstallIn(ViewModelComponent::class)
 open class UseCaseModule  {
     @Provides
-    fun provideGetGenreUsecase(repo: UserDataSource) = GetUserDataUseCase(repo)
+    fun provideUsersRepo(repo: UserDataSource) = GetUserDataUseCase(repo)
 
 }
 

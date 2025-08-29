@@ -18,11 +18,11 @@ class UserScreenViewModel @Inject constructor(
     val userData = mutableStateOf<ModelResult<List<UserModel>>>(ModelResult.Loading())
 
     init {
-        loadGenre()
+        loadUsers()
     }
 
 
-    fun loadGenre() {
+    fun loadUsers() {
         viewModelScope.launch {
             getUserDataUseCase().collect {
                 userData.value = it

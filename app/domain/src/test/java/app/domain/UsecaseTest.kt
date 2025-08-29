@@ -55,14 +55,14 @@ class UsecaseTest {
     @Test
     fun testUsecase() = runTest {
 
-        val genre = callUsecase { cont ->
+        val users = callUsecase { cont ->
             getUserDataUseCase().collect {
                 it.onNotLoading {
                     cont.resume(it)
                 }
             }
         }
-        println(genre)
+        println(users)
 
     }
 }

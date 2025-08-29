@@ -51,7 +51,7 @@ fun UserScreen(
             UserLoadingScreen()
         } else if (state.isFailure()) {
             UserFailureScreen {
-                viewModel.loadGenre()
+                viewModel.loadUsers()
             }
         } else {
             UserSuccessScreen(
@@ -150,7 +150,7 @@ fun UserSuccessScreen(
 @Composable
 @Preview
 fun UserSuccessCard(
-    genre: UserModel = UserModel("test", "test"),
+    users: UserModel = UserModel("test", "test"),
 ) {
     Card(
         onClick = {
@@ -161,13 +161,13 @@ fun UserSuccessCard(
         content = {
             Column {
                 Text(
-                    genre.name,
+                    users.name,
                     modifier = Modifier.padding(10.dp),
                     fontWeight = FontWeight.Bold,
                     fontSize = TextUnit(12f, type = TextUnitType.Sp)
                 )
                 Text(
-                    genre.email,
+                    users.email,
                     modifier = Modifier.padding(10.dp),
                     fontWeight = FontWeight.Bold,
                     fontSize = TextUnit(12f, type = TextUnitType.Sp)
